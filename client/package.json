@@ -1,5 +1,5 @@
 {
-  "name": "consumer-2-business-app-client",
+  "name": "b2c-app-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
