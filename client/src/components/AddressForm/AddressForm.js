@@ -13,7 +13,11 @@ const AddressForm = ({ address }) => {
         acc[cur.name] = cur.value;
         return acc;
       }, {});
-    saveAddress(address).then(res => console.log(res.status));
+    saveAddress(address).then(res => {
+      const target = window.opener;
+      target.postMessage(address, 'http://localhost:3001');
+      window.close();
+    });
   }
   return (
     <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
@@ -41,7 +45,7 @@ const AddressForm = ({ address }) => {
         Zip
         <input name="zip" defaultValue={address.zip} />
       </label>
-      <button type="submit">Save</button>
+      <button type="submit">Confirm and Authorize</button>
     </form>
   );
 };
